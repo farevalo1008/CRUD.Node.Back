@@ -1,11 +1,16 @@
 const express = require('express');
+const conectarDB = require('./config/db');
 
 // Creamos el servidor
 const app = express();
 
-// BASE DE DATOS USER: fernando PASSWORD: admin123
+// BASE DE DATOS USER: fernando PASSWORD: Fa257153462019
+//Conectar a la DB
+conectarDB();
 
-// definimos Ruta principal
+app.use('/api/productos', require('./routes/producto'));
+
+//definimos Ruta principal
 app.get('/', (req, res) => {
     res.send('Hola mundo');
 
